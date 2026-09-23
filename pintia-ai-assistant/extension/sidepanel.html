@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pintia 学习辅助</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Pintia 学习辅助</h1>
+  </header>
+
+  <section class="card">
+    <div class="section-title">当前页面</div>
+    <div id="pageStatus" class="status">等待读取页面…</div>
+    <label for="mode">工作模式</label>
+    <select id="mode">
+      <option value="diagnostic">模式 A：显示题面与诊断</option>
+      <option value="assist">模式 B：保存当前题型并切换</option>
+    </select>
+    <div class="actions">
+      <button id="refresh" class="primary">读取当前题目</button>
+      <button id="startAssist" disabled>开始 B 模式</button>
+      <button id="pause">暂停/继续</button>
+      <button id="stop">停止</button>
+      <button id="saveNext" disabled>填入、保存并切换</button>
+    </div>
+    <div id="navigationHint" class="hint"></div>
+    <div id="typeNavigation" class="type-navigation"></div>
+  </section>
+
+  <details id="problemCard" class="card problem-details hidden">
+    <summary id="problemSummary">题目</summary>
+    <div id="problemMeta" class="meta"></div>
+    <pre id="problemText" class="problem-text"></pre>
+  </details>
+
+  <section id="answerCard" class="card hidden">
+    <div class="section-title">生成并填入答案</div>
+    <p class="hint">A 模式：检查答案后点击“填入答案”。B 模式：检查答案后点击“填入、保存并切换”。</p>
+    <div class="actions">
+      <button id="fillAnswers" class="primary" disabled>填入答案</button>
+      <button id="generateAnswers" disabled>重新生成</button>
+    </div>
+    <textarea id="generatedAnswers" class="answer-box" spellcheck="false" placeholder='答案格式示例：{"answers":[{"problemSetProblemId":"题目ID","values":["T"]}]}'></textarea>
+    <div id="answerStatus" class="status"></div>
+  </section>
+
+  <section id="codingCard" class="card hidden">
+    <div class="section-title">生成代码</div>
+    <label for="codingLanguage">编程语言</label>
+    <select id="codingLanguage">
+      <option value="c">C</option>
+      <option value="cpp">C++</option>
+      <option value="python">Python</option>
+    </select>
+    <div class="actions">
+      <button id="generateCode" class="primary">生成代码</button>
+      <button id="fillCoding" disabled>填入编辑器</button>
+    </div>
+    <textarea id="generatedCode" class="code-box" spellcheck="false" placeholder="生成的代码会显示在这里；你也可以先在此修改，再点击“填入编辑器”。"></textarea>
+    <div id="codingStatus" class="status"></div>
+  </section>
+
+  <details class="advanced">
+    <summary>调试与诊断</summary>
+    <div class="actions">
+      <button id="export">导出脱敏诊断 JSON</button>
+    </div>
+    <pre id="data"></pre>
+  </details>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

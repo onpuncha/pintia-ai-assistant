@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Pintia 学习辅助（诊断版）",
+  "version": "0.1.0",
+  "description": "用于非计分练习的题面诊断、保存和题型导航辅助。",
+  "permissions": ["storage", "tabs", "scripting", "sidePanel"],
+  "host_permissions": ["https://pintia.cn/*", "http://localhost:8787/*", "http://127.0.0.1:8787/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_title": "打开 Pintia 助手" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "content_scripts": [
+    {
+      "matches": ["https://pintia.cn/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html"
+}

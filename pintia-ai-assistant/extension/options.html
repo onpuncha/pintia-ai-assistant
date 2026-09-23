@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>设置</title><link rel="stylesheet" href="styles.css"></head><body>
+<h1>设置</h1>
+<label>本地服务地址 <input id="apiBaseUrl" value="http://127.0.0.1:8787"></label>
+<label>模型名称 <input id="model" value="deepseek-chat"></label>
+<label><input type="checkbox" id="autoSaveAndNavigate"> 启用模式 B 自动保存并切换</label>
+<label><input type="checkbox" id="overwriteExisting" checked> 允许覆盖已有答案</label>
+<button id="save" class="primary">保存设置</button> <button id="health">测试本地服务</button>
+<p id="status"></p><script src="options.js"></script></body></html>
